@@ -25,3 +25,40 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Base styles for code blocks */
+pre {
+  background-color: #363636;
+  padding: 10px;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+/* Styles for specific languages */
+pre code {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Comment style */
+.token.comment {
+  color: #888;
+}
+
+/* Keyword style */
+.token.keyword {
+  color: #007bff;
+}
+
+/* String style */
+.token.string {
+  color: #28a745;
+}
+
+/* Number style */
+.token.number {
+  color: #dc3545;
+}
+
+/* Add more styles for other token types as needed */
+
+/* Line numbers (optional) */
