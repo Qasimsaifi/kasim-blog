@@ -23,15 +23,14 @@ async function fetchBlogs() {
   }
 }
 
+export const metadata = {
+  title: "Ink Tales: Kasim's Friendly Musings on All Things Wonderful and Ordinary ",
+  description: "Welcome to Kasim's Blog - A place for insightful articles and blog posts.",
+};
+
 async function BlogsPage() {
   const blogsData = await fetchBlogs();
   const blogs = blogsData.results;
-  // console.log(blogs[0]);
-
-  async function sayHellow(params) {
-    "use server";
-    console.log(params);
-  }
 
   return (
     <>

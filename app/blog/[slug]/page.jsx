@@ -1,5 +1,5 @@
 import Navbar from "@/app/components/Navbar";
-
+import Head from "next/head";
 const fetchData = async (slug) => {
   const API_URL = "https://backend.kasimsaifi.tech/api/v1"; // Replace this with your API URL
   const token =
@@ -35,6 +35,14 @@ export default async function Page({ params }) {
  
   return (
     <>
+    <Head>
+      <title>{blog.title}</title>
+      <meta
+          name="description"
+          content={blog.content}
+        />
+
+    </Head>
     <Navbar/>
 <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-white lg:w-8/12">
       <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
