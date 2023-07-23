@@ -36,7 +36,7 @@ export default async function Page({ params }) {
   return (
     <>
     <Head>
-      <title>{blog.title}</title>
+      <title>Blog - {blog.title}</title>
       <meta
           name="description"
           content={blog.content}
