@@ -46,6 +46,8 @@ async function BlogsPage() {
                   className="rounded-t-lg"
                   src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}
                   alt=""
+                  width='400px'
+                  height='400px'
                 />
               </a>
               <div className="p-5">
