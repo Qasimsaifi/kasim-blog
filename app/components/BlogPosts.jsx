@@ -1,4 +1,4 @@
-
+import Image from "next/image";
 async function fetchBlogs() {
   try {
     const response = await fetch(
@@ -42,7 +42,7 @@ async function BlogsPage() {
           blogs.map((blog) => (
             <div key={blog.id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <a href="#">
-                <img
+                <Image
                   className="rounded-t-lg"
                   src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}
                   alt=""
