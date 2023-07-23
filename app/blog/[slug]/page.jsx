@@ -1,7 +1,7 @@
 import Navbar from "@/app/components/Navbar";
 import Head from "next/head";
 const fetchData = async (slug) => {
-  const API_URL = "https://backend.kasimsaifi.tech/api/v1"; // Replace this with your API URL
+  const API_URL = "https://backend.kasimsaifi.tech/api/v1";
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkzNTg3Nzg4LCJpYXQiOjE2ODgyMzA5ODgsImp0aSI6IjI4N2QwNTNmYWIyYjQwOTQ4OGVkOTc5ZGU4OTJkOTE2IiwidXNlcl9pZCI6MX0.QtMmMX8pju2nulQkjlw4MoSWi0bTTZfxRqkVTqlCmrk"; // Replace this with your actual bearer token
 
@@ -10,6 +10,7 @@ const fetchData = async (slug) => {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+      cache:'no-cache'
     });
 
     if (!response.ok) {
