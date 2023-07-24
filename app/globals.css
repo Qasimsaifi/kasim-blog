@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,6 +24,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+body{
+  background-color: #1a202c;
 }
 
 .dot-wave {
@@ -76,4 +79,50 @@ body {
   50% {
     transform: translateY(-200%);
   }
+}
+.card {
+  padding: 20px;
+  width: 330px;
+  min-height: 370px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 1px #1a202c,
+  -5px -5px 6px #1a202c;
+  transition: 0.4s;
+  background-color: #1a202c;
+}
+
+.card:hover {
+  translate: 0 -4px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2e54a7;
+  margin: 15px 0 0 10px;
+}
+
+.card-image {
+  min-height: 170px;
+  background-color: #c9c9c9;
+  border-radius: 15px;
+  box-shadow: inset 8px 8px 10px #c3c3c3,
+  inset -8px -8px 10px #cfcfcf;
+}
+
+.card-body {
+  margin: 13px 0 0 10px;
+  color: rgb(31, 31, 31);
+  font-size: 15px;
+}
+
+.footer {
+  float: right;
+  margin: 28px 0 0 18px;
+  font-size: 13px;
+  color: #636363;
+}
+
+.by-name {
+  font-weight: 700;
 }

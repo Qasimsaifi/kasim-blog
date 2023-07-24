@@ -9,6 +9,7 @@ export default function Home() {
     <>
 <Navbar/>
     <Suspense fallback={<Loading/>}>
+        
       <BlogsPage/>
     </Suspense>
     </>

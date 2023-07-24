@@ -1,4 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
+
+
+
 async function fetchBlogs() {
   try {
     const response = await fetch(
@@ -28,53 +32,50 @@ async function BlogsPage() {
   const blogsData = await fetchBlogs();
   const blogs = blogsData.results;
   // console.log(blogs[0]);
+  function formatDate(dateString) {
+    const dateObj = new Date(dateString);
+    const day = String(dateObj.getDate()).padStart(2, "0");
+    const month = String(dateObj.getMonth() + 1).padStart(2, "0");
+    const year = dateObj.getFullYear();
 
+    return `${day}/${month}/${year}`;
+  }
   return (
     <>
-      <div className="flex justify-center items-center bg-black py-12 text-white mt-16">
-        <div className="w-full px-4 sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {Array.isArray(blogs) ? (
-            blogs.map((blog) => (
-              <div
-                key={blog.id}
-                className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-              >
-                <a href="#">
-                  {blog.image ? (
-                    <Image
-                      className="rounded-t-lg"
-                      src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}
-                      alt=""
-                      width={500}
-                      height={100}
-                    />
-                  ) : (
-                    <img
-                      className="rounded-t-lg"
-                      src='/no-image.png'
-                      alt="Default Image"
-                      width={500}
-                      height='50px'
-                    />
-                  )}
-                </a>
-                <div className="p-5">
-                  <a href="#">
-                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      {blog.category}
-                    </h5>
-                  </a>
-                  <p className="mb-3 text-gray-700 dark:text-gray-400">
-                    {blog.title}
-                  </p>
-                  <a
-                    href={`blog/${blog.slug}`}
-                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >
-                    Read more
-                  </a>
-                </div>
+<div className="flex justify-center items-center bg-gray-800 py-12 text-white h-full">
+      <div className="w-full px- sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 h-full  mt-16">
+        {Array.isArray(blogs) ? (
+          blogs.map((blog) => (
+            <div key={blog.slug} className="card bg-gray-900 flex flex-col justify-between h-full">
+              <Link href={`/blog/${blog.slug}`}>
+                {blog.image ? (
+                  <Image
+                    className="card-image"
+                    src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}
+                    alt=""
+                    width={500}
+                    height={100}
+                  />
+                ) : (
+                  <img
+                    className="card-image"
+                    src="/no-image.png"
+                    alt="Default Image"
+                    width={500}
+                    height="50px"
+                  />
+                )}
+              </Link>
+              <div className="flex flex-col justify-between flex-grow">
+                <Link href={`/blog/${blog.slug}`}> 
+                <p className="card-title">{blog.title}</p>
+                </Link>
+                <p className="footer mt-18">
+                  Written by <span className="by-name">{blog.author}</span> on{" "}
+                  <span className="date">{formatDate(blog.created_at)}</span>
+                </p>
               </div>
+            </div>
             ))
           ) : (
             <p>No blogs to display.</p>

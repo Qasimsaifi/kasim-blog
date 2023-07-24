@@ -57,7 +57,7 @@ export default async function Page({ params }) {
       </Head>
       <Navbar />
     <Suspense fallback={<h1>Loding.....</h1>}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-white lg:w-8/12">
+      <div className="container mx-auto px-4 sm:px-6 mt-14 lg:px-8 py-8 text-white lg:w-8/12">
         <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
         <img
           className="w-full rounded-lg mb-4"
