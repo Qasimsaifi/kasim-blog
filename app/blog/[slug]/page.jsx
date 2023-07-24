@@ -1,5 +1,13 @@
 import Navbar from "@/app/components/Navbar";
 import Head from "next/head";
+import "prismjs";
+import "prismjs/themes/prism-tomorrow.css";
+import "prismjs/components/prism-core";
+import "prismjs/components/prism-clike";
+import "prismjs/components/prism-javascript";
+import { Suspense } from "react";
+
+
 const fetchData = async (slug) => {
   const API_URL = "https://backend.kasimsaifi.tech/api/v1";
   const token =
@@ -10,7 +18,7 @@ const fetchData = async (slug) => {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      cache:'no-cache'
+      cache: "no-cache",
     });
 
     if (!response.ok) {
@@ -25,39 +33,47 @@ const fetchData = async (slug) => {
   }
 };
 
+const codeBlockRegex = /<code class="language-(.*?)">([\s\S]*?)<\/code>/g;
 
-
+function processCodeBlocks(content) {
+  return content.replace(codeBlockRegex, (_, language, code) => {
+    const highlightedCode = Prism.highlight(code, Prism.languages[language], language);
+    return `<pre class="language-${language}"><code class="language-${language}">${highlightedCode}</code></pre>`;
+  });
+}
 
 
 export default async function Page({ params }) {
   const blog = await fetchData(params.slug);
   // console.log(blog);
+  const processedContent = blog ? processCodeBlocks(blog.content) : "";
 
- 
   return (
-    <>
-    <Head>
-      <title>Blog - {blog.title}</title>
-      <meta
-          name="description"
-          content={blog.content}
-        />
 
-    </Head>
-    <Navbar/>
-<div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-white lg:w-8/12">
-      <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
-      <img
-        className="w-full rounded-lg mb-4"
-        src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}
-        alt=""
-      />
-      <div className="" dangerouslySetInnerHTML={{ __html: blog.content }} />
-      <div className="mt-4 flex flex-row items-center">
-        <p className="mr-2 text-gray-400">Author: {blog.author}</p>
-        <p className="text-gray-400">Category: {blog.category}</p>
+    <>
+      <Head>
+        <title>Blog - {blog.title}</title>
+        <meta name="description" content={blog.content} />
+      </Head>
+      <Navbar />
+    <Suspense fallback={<h1>Loding.....</h1>}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-white lg:w-8/12">
+        <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
+        <img
+          className="w-full rounded-lg mb-4"
+          src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}
+          alt=""
+        />
+        <div
+          className="prose" // Use 'prose' or any other class to style the blog content (adjust as needed)
+          dangerouslySetInnerHTML={{ __html: processedContent }}
+        />
+        <div className="mt-4 flex flex-row items-center">
+          <p className="mr-2 text-gray-400">Author: {blog.author}</p>
+          <p className="text-gray-400">Category: {blog.category}</p>
+        </div>
       </div>
-    </div>
+      </Suspense>
     </>
   );
 }
