@@ -1,9 +1,6 @@
-import { Suspense } from "react";
-import "./globals.css";
-import { Inter } from "next/font/google";
-import Loading from "./components/Loading";
-import { HighlightInit } from "@highlight-run/next/highlight-init";
+import Footer from "@/components/Footer";
 import Providers from "./Providers";
+import "./globals.css";
 export default function RootLayout({ children }) {
   return (
     <>
@@ -15,7 +12,10 @@ export default function RootLayout({ children }) {
         </head>
 
         <body>
-          <Providers>{children}</Providers>
+          <Providers>
+            {children}
+            <Footer/>
+          </Providers>
         </body>
       </html>
     </>

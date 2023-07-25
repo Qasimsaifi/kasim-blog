@@ -55,6 +55,11 @@ function Navbar() {
               </Link>
             </li>
             <li className="pb-6 text-xl  dark:text-white py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-600 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
+              <Link href="/about" onClick={() => setNavbar(!navbar)}>
+                About
+              </Link>
+            </li>
+            <li className="pb-6 text-xl  dark:text-white py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-600 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
               <ThemeChanger/>
             </li>
 
