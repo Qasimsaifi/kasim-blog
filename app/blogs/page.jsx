@@ -5,8 +5,8 @@ import BlogsPage from "../components/BlogPosts";
 
 
 export const metadata = {
-  title: "Ink Tales: Kasim's Friendly Musings on All Things Wonderful and Ordinary ",
-  description: "Welcome to Kasim's Blog - A place for insightful articles and blog posts.",
+  title: "Ink Tales: Blogicco Friendly Musings on All Things Wonderful and Ordinary ",
+  description: "Welcome to Blogicco Blog - A place for insightful articles and blog posts.",
 };
 
 async function Blogs() {

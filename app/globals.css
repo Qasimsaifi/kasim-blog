@@ -80,18 +80,16 @@ body{
     transform: translateY(-200%);
   }
 }
-.card {
-  padding: 20px;
-  width: 330px;
-  min-height: 370px;
+
+
+.blog-card {
   border-radius: 20px;
   box-shadow: 1px 1px 1px #1a202c,
   -5px -5px 6px #1a202c;
   transition: 0.4s;
-  background-color: #1a202c;
 }
 
-.card:hover {
+.blog-card:hover {
   translate: 0 -4px;
 }
 
@@ -103,17 +101,10 @@ body{
 }
 
 .card-image {
-  min-height: 170px;
   border-radius: 15px;
 }
 
-.card-body {
-  margin: 13px 0 0 10px;
-  color: rgb(31, 31, 31);
-  font-size: 15px;
-}
-
-.footer {
+.blog-footer {
   float: right;
   margin: 28px 0 0 18px;
   font-size: 13px;

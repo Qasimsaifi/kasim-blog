@@ -46,7 +46,7 @@ async function BlogsPage() {
   <div className="w-full px-4 sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 mt-8">
     {Array.isArray(blogs) ? (
       blogs.map((blog) => (
-        <div key={blog.slug} className="card bg-gray-900 flex flex-col h-full border-double border-4 border-gray-700">
+        <div key={blog.slug} className="blog-card  bg-gray-900 flex flex-col h-full border-double border-4 border-gray-700 p-2">
           <Link href={`/blog/${blog.slug}`}>
             {blog.image ? (
               <Image
@@ -66,11 +66,11 @@ async function BlogsPage() {
               />
             )}
           </Link>
-          <div className="flex flex-col justify-between flex-grow p-4">
+          <div className="flex flex-col justify-between flex-grow">
             <Link href={`/blog/${blog.slug}`}>
               <p className="card-title">{blog.title}</p>
             </Link>
-            <p className="footer mt-4">
+            <p className="blog-footer mt-4 pb-2">
               Written by <span className="by-name">{blog.author}</span> on{" "}
               <span className="date">{formatDate(blog.created_at)}</span>
             </p>
