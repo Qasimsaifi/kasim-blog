@@ -6,7 +6,7 @@ import Link from "next/link";
 async function fetchBlogs() {
   try {
     const response = await fetch(
-      "https://backend.kasimsaifi.tech/api/v1/portfolio/blog/?is_published=true&ordering=-created_at",
+      ` ${process.env.NEXT_PUBLIC_API_URL}/portfolio/blog/?is_published=true&ordering=-created_at`,
       {
         cache: "no-cache",
         headers: {

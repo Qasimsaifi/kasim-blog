@@ -6,9 +6,8 @@ import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import { Suspense } from "react";
 
-
 const fetchData = async (slug) => {
-  const API_URL = "https://backend.kasimsaifi.tech/api/v1";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkzNTg3Nzg4LCJpYXQiOjE2ODgyMzA5ODgsImp0aSI6IjI4N2QwNTNmYWIyYjQwOTQ4OGVkOTc5ZGU4OTJkOTE2IiwidXNlcl9pZCI6MX0.QtMmMX8pju2nulQkjlw4MoSWi0bTTZfxRqkVTqlCmrk"; // Replace this with your actual bearer token
 
@@ -36,7 +35,11 @@ const codeBlockRegex = /<code class="language-(.*?)">([\s\S]*?)<\/code>/g;
 
 function processCodeBlocks(content) {
   return content.replace(codeBlockRegex, (_, language, code) => {
-    const highlightedCode = Prism.highlight(code, Prism.languages[language], language);
+    const highlightedCode = Prism.highlight(
+      code,
+      Prism.languages[language],
+      language
+    );
     return `<pre class="language-${language}"><code class="language-${language}">${highlightedCode}</code></pre>`;
   });
 }
@@ -47,7 +50,6 @@ export default async function SingleBlog({ slug }) {
   const processedContent = blog ? processCodeBlocks(blog.content) : "";
 
   return (
-
     <>
       <Head>
         <title>Blog - {blog.title}</title>
