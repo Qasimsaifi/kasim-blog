@@ -42,46 +42,47 @@ async function BlogsPage() {
   }
   return (
     <>
-<div className="flex justify-center items-center bg-gray-800 py-12 text-white h-full">
-      <div className="w-full px- sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 h-full  mt-16">
-        {Array.isArray(blogs) ? (
-          blogs.map((blog) => (
-            <div key={blog.slug} className="card bg-gray-900 flex flex-col justify-between h-full">
-              <Link href={`/blog/${blog.slug}`}>
-                {blog.image ? (
-                  <Image
-                    className="card-image"
-                    src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}
-                    alt=""
-                    width={500}
-                    height={100}
-                  />
-                ) : (
-                  <img
-                    className="card-image"
-                    src="/no-image.png"
-                    alt="Default Image"
-                    width={500}
-                    height="50px"
-                  />
-                )}
-              </Link>
-              <div className="flex flex-col justify-between flex-grow">
-                <Link href={`/blog/${blog.slug}`}> 
-                <p className="card-title">{blog.title}</p>
-                </Link>
-                <p className="footer mt-18">
-                  Written by <span className="by-name">{blog.author}</span> on{" "}
-                  <span className="date">{formatDate(blog.created_at)}</span>
-                </p>
-              </div>
-            </div>
-            ))
-          ) : (
-            <p>No blogs to display.</p>
-          )}
+<div className="flex justify-center items-center bg-gray-800 py-12 text-white">
+  <div className="w-full px-4 sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 mt-8">
+    {Array.isArray(blogs) ? (
+      blogs.map((blog) => (
+        <div key={blog.slug} className="card bg-gray-900 flex flex-col h-full border-double border-4 border-gray-700">
+          <Link href={`/blog/${blog.slug}`}>
+            {blog.image ? (
+              <Image
+                className="card-image border-double border-4 border-gray-700 p-1"
+                src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}
+                alt=""
+                width={500}
+                height={100}
+              />
+            ) : (
+              <img
+                className="card-image"
+                src="/no-image.png"
+                alt="Default Image"
+                width={500}
+                height="50px"
+              />
+            )}
+          </Link>
+          <div className="flex flex-col justify-between flex-grow p-4">
+            <Link href={`/blog/${blog.slug}`}>
+              <p className="card-title">{blog.title}</p>
+            </Link>
+            <p className="footer mt-4">
+              Written by <span className="by-name">{blog.author}</span> on{" "}
+              <span className="date">{formatDate(blog.created_at)}</span>
+            </p>
+          </div>
         </div>
-      </div>
+      ))
+    ) : (
+      <p>No blogs to display.</p>
+    )}
+  </div>
+</div>
+
     </>
   );
 }
