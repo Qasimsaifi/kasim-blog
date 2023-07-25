@@ -3,10 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Loading from "./components/Loading";
 import { HighlightInit } from "@highlight-run/next/highlight-init";
-const inter = Inter({ subsets: ["latin"] });
-
-
-
+import Providers from "./Providers";
 export default function RootLayout({ children }) {
   return (
     <>
@@ -16,7 +13,10 @@ export default function RootLayout({ children }) {
           <meta name="robots" content="index, follow" />
           <link rel="canonical" href="https://blog.kasimsaifi.tech" />
         </head>
-        <body>{children}</body>
+
+        <body>
+          <Providers>{children}</Providers>
+        </body>
       </html>
     </>
   );

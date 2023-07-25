@@ -2,12 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import ThemeChanger from "./ThemeChanger";
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full fixed top-0 left-0 right-0 z-10 border-b border-gray-500 bg-gray-800">
+    <nav className="w-full fixed top-0 left-0 right-0 z-10 border-b bg-gray-100 dark:bg-gray-900  border-gray-500">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-1 md:block">
@@ -42,17 +43,21 @@ function Navbar() {
           } md:flex md:justify-center md:items-center md:p-0 md:mt-0`}
         >
           <ul className="md:flex md:mt-2">
-            <li className="pb-6 text-xl text-black dark:text-white py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-900 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
+            <li className="pb-6 text-xl  dark:text-white py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-900 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
               <Link href="/" onClick={() => setNavbar(!navbar)}>
                 Home
               </Link>
             </li>
 
-            <li className="pb-6 text-xl text-black dark:text-white py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-600 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
+            <li className="pb-6 text-xl  dark:text-white py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-600 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
               <Link href="/blogs" onClick={() => setNavbar(!navbar)}>
                 Blogs
               </Link>
             </li>
+            <li className="pb-6 text-xl  dark:text-white py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-600 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
+              <ThemeChanger/>
+            </li>
+
           </ul>
         </div>
       </div>

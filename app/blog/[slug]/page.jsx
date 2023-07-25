@@ -7,7 +7,7 @@ import Loading from "@/app/components/Loading";
 export default async function Page({ params }) {
   return (
 
-    <>
+    <main className="bg-gray-100 dark:bg-gray-900">
       <head>
         <title>{params.slug}</title>
       </head>
@@ -15,6 +15,6 @@ export default async function Page({ params }) {
     <Suspense fallback={<Loading/>}>
       <SingleBlog slug={params.slug}/>
       </Suspense>
-    </>
+    </main>
   );
 }

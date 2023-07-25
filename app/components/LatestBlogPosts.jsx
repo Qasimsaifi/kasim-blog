@@ -6,7 +6,7 @@ import Link from "next/link";
 async function fetchBlogs() {
   try {
     const response = await fetch(
-      "https://backend.kasimsaifi.tech/api/v1/portfolio/blog/?is_published=true&ordering=-created_at",
+      "https://backend.kasimsaifi.tech/api/v1/portfolio/blog/?is_published=true&ordering=-created_at&page=1&page_size=6",
       {
         cache: "no-cache",
         headers: {
@@ -28,7 +28,7 @@ async function fetchBlogs() {
   }
 }
 
-async function BlogsPage() {
+async function LatestBlogPost() {
   const blogsData = await fetchBlogs();
   const blogs = blogsData.results;
   // console.log(blogs[0]);
@@ -46,7 +46,7 @@ async function BlogsPage() {
   <div className="w-full px-4 sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 mt-8">
     {Array.isArray(blogs) ? (
       blogs.map((blog) => (
-        <div key={blog.slug} className="blog-card shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] flex flex-col h-full border-double border-4 border-gray-700 p-2">
+        <div key={blog.slug} className="blog-card bg-gray-200 dark:bg-gray-800 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] flex flex-col h-full border-double border-4 border-gray-700 p-2">
           <Link href={`/blog/${blog.slug}`}>
             {blog.image ? (
               <Image
@@ -82,8 +82,9 @@ async function BlogsPage() {
     )}
   </div>
 </div>
+
     </>
   );
 }
 
-export default BlogsPage;
+export default LatestBlogPost;

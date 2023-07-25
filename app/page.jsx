@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import BlogsPage from "./components/BlogPosts";
 import { Suspense } from "react";
 import Loading from "./components/Loading";
+import LatestBlogPost from "./components/LatestBlogPosts";
 export const metadata = {
   title: "Blogicco World: Discovering Life's Marvels and Insights",
   description:
@@ -10,12 +11,12 @@ export const metadata = {
 };
 export default function Home() {
   return (
-    <>
+    <main className="bg-gray-100 dark:bg-gray-900">
 <Navbar/>
     <Suspense fallback={<Loading/>}>
         
-      <BlogsPage/>
+      <LatestBlogPost/>
     </Suspense>
-    </>
+    </main>
   );
 }
