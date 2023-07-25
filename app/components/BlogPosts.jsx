@@ -42,7 +42,7 @@ async function BlogsPage() {
   }
   return (
     <>
-<div className="flex justify-center items-center bg-gray-800 py-12 text-white">
+<div className="flex justify-center items-center bg-gray-800 py-12 mt-8 text-white">
   <div className="w-full px-4 sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 mt-8">
     {Array.isArray(blogs) ? (
       blogs.map((blog) => (
