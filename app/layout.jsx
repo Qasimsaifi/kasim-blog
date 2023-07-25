@@ -5,11 +5,7 @@ import Loading from "./components/Loading";
 import { HighlightInit } from "@highlight-run/next/highlight-init";
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Kasim's World: Discovering Life's Marvels and Insights",
-  description:
-    "Welcome to Kasim's Blog - A place for insightful articles and blog posts.",
-};
+
 
 export default function RootLayout({ children }) {
   return (

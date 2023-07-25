@@ -21,7 +21,7 @@ function Navbar() {
               <div className="flex items-center justify-between py-1   md:block">
                 {/* LOGO */}
                 <Link href="/">
-                  <h2 className="text-2xl text-purple-600 font-bold ">KASIM</h2>
+                  <h2 className="text-2xl text-purple-600 font-bold ">BLOGICCO</h2>
                 </Link>
                 {/* HAMBURGER BUTTON FOR MOBILE */}
                 <div className="md:hidden">
