@@ -62,8 +62,8 @@ export default async function SingleBlog({ slug }) {
       <Navbar />
 
       <main className="bg-gray-100 dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 mt-14 lg:px-8 py-8 lg:w-8/12">
-          <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:w-8/12">
+          <h1 className="text-3xl mt-14  font-bold mb-4">{blog.title}</h1>
           <img
             className="w-full rounded-lg mb-4"
             src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}

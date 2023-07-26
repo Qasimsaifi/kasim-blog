@@ -20,9 +20,9 @@ const AboutPage = () => {
           content="Welcome to Bloggico - A blog dedicated to web development and technology. Learn from the passionate web developer, John Smith, and stay updated with the latest trends, tips, and tutorials in the world of web development."
         ></meta>
       </Head>
-      <section className="mt-16">
+      <section className="">
         <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
+          <div className="mt-16 max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-bold text-purple-500 mb-6 text-center">
               Welcome to Bloggico
             </h1>

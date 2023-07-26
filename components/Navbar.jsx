@@ -8,7 +8,7 @@ function Navbar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full fixed top-0 left-0 right-0 z-10 border-b bg-gray-100 dark:bg-gray-900  border-gray-500">
+    <nav className="w-full fixed top-0 left-0 right-0 z-10 text-black ">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-1 md:block">

@@ -3,6 +3,7 @@ import LatestBlogPost from "@/components/LatestBlogPosts";
 import Loading from "@/components/Loading";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
 
 export const metadata = {
   title: "Blogicco World: Discovering Life's Marvels and Insights",
@@ -13,12 +14,19 @@ export default function Home() {
   return (
     <main className="bg-gray-100 dark:bg-gray-900">
       <Navbar />
-      
-        <Suspense fallback={<Loading />}>
-          <LatestBlogPost />
-          <Footer/>
+      <Hero />
+      <div className=" mb-4 flex justify-center " id="latest">
+        <h1 className="mt-20 text-5xl font-bold pb-2 text-purple-600 border-b-4 border-purple-600 border-spacing-48 inline">
+          Latest Blogs
+        </h1>
+      </div>
 
-        </Suspense>
+      <Suspense fallback={<Loading />}>
+        <main>
+          <LatestBlogPost />
+        </main>
+      </Suspense>
+      <Footer />
     </main>
   );
 }
