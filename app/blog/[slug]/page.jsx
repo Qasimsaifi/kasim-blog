@@ -2,17 +2,23 @@ import Loading from "@/components/Loading";
 import Navbar from "@/components/Navbar";
 import SingleBlog from "@/components/SingleBlog";
 import { Suspense } from "react";
+import Footer from "@/components/Footer";
+import BlogLoading from "@/components/BlogLoading";
 
 export default async function Page({ params }) {
   return (
-    <main className="bg-gray-100 dark:bg-gray-900">
-      <head>
+    <>
+    <head>
         <title>{params.slug}</title>
       </head>
-      <Navbar />
-      <Suspense fallback={<Loading />}>
+      <body className='bg-gray-100 dark:bg-gray-900'>
+        
+      
+      <Suspense fallback={<BlogLoading />}>
         <SingleBlog slug={params.slug} />
+
       </Suspense>
-    </main>
+      </body>
+    </>
   );
 }

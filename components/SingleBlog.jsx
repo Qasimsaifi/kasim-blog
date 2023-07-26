@@ -5,7 +5,9 @@ import "prismjs/components/prism-core";
 import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import { Suspense } from "react";
-
+import NotFound from "@/app/not-found";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 const fetchData = async (slug) => {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const token =
@@ -46,6 +48,11 @@ function processCodeBlocks(content) {
 
 export default async function SingleBlog({ slug }) {
   const blog = await fetchData(slug);
+
+  if (!blog) {
+    return <NotFound statusCode={404} />;
+  }
+
   // console.log(blog);
   const processedContent = blog ? processCodeBlocks(blog.content) : "";
 
@@ -55,22 +62,28 @@ export default async function SingleBlog({ slug }) {
         <title>Blog - {blog.title}</title>
         <meta name="description" content={blog.content} />
       </Head>
-      <div className="container mx-auto px-4 sm:px-6 mt-14 lg:px-8 py-8 lg:w-8/12">
-        <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
-        <img
-          className="w-full rounded-lg mb-4"
-          src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}
-          alt=""
-        />
-        <div
-          className="prose" // Use 'prose' or any other class to style the blog content (adjust as needed)
-          dangerouslySetInnerHTML={{ __html: processedContent }}
-        />
-        <div className="mt-4 flex flex-row items-center">
-          <p className="mr-2 text-gray-400">Author: {blog.author}</p>
-          <p className="text-gray-400">Category: {blog.category}</p>
+    <Navbar />
+
+      <main>
+        <div className="container mx-auto px-4 sm:px-6 mt-14 lg:px-8 py-8 lg:w-8/12">
+          <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
+          <img
+            className="w-full rounded-lg mb-4"
+            src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}
+            alt=""
+          />
+          <div
+            className="prose" // Use 'prose' or any other class to style the blog content (adjust as needed)
+            dangerouslySetInnerHTML={{ __html: processedContent }}
+          />
+          <div className="mt-4 flex flex-row items-center">
+            <p className="mr-2 text-gray-400">Author: {blog.author}</p>
+            <p className="text-gray-400">Category: {blog.category}</p>
+          </div>
         </div>
-      </div>
+      </main>
+      <Footer />
+
     </>
   );
 }

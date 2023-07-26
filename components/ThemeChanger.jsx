@@ -1,7 +1,7 @@
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { BiMoon, BiSun } from 'react-icons/bi';
 import { Moon } from 'lucide-react';
+import { Sun } from 'lucide-react';
 const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -23,7 +23,7 @@ const ThemeChanger = () => {
 
   return (
     <div onClick={toggleTheme} className='cursor-pointer mt-1'>
-      {theme === 'dark' ? <BiSun size={24} /> :<Moon size={24} />}
+      {theme === 'dark' ? <Sun size={24} /> :<Moon size={24} />}
     </div>
   );
 };

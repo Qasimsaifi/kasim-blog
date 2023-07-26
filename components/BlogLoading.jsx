@@ -1,8 +1,10 @@
 import React from "react";
-
-const Loading = () => {
+import Navbar from './Navbar'
+const BlogLoading = () => {
   return (
-    <main className="h-screen bg-gray-100 dark:bg-gray-900">
+    <body className="bg-gray-100 dark:bg-gray-900">
+      <Navbar/>
+    <main className="h-screen ">
       <div className="min-w-screen min-h-screen font-mono  flex items-center justify-center px-5 py-5">
       <div className="dot-wave ">
         <div className="dot-wave__dot"></div>
@@ -12,7 +14,9 @@ const Loading = () => {
       </div>
       </div>
     </main>
+    
+    </body>
   );
 };
 
-export default Loading;
+export default BlogLoading;

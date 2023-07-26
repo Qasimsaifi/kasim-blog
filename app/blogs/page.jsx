@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import BlogsPage from "@/components/BlogPosts";
 import Loading from "@/components/Loading";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Blogicco Friendly Musings on All Things Wonderful and Ordinary ",
@@ -15,6 +16,8 @@ async function Blogs() {
       <Navbar />
       <Suspense fallback={<Loading />}>
         <BlogsPage />
+        <Footer/>
+
       </Suspense>
     </main>
   );
