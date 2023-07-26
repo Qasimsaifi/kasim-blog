@@ -53,7 +53,9 @@
     transform: translateY(-200%);
   }
 }
-
+html {
+  scroll-behavior: smooth;
+}
 
 .blog-card {
   border-radius: 20px;

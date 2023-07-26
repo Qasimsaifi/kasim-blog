@@ -38,9 +38,9 @@ async function BlogsPage() {
     return `${day}/${month}/${year}`;
   }
   return (
-    <main className="mt-16 min-h-screen">
-      <div className="flex justify-center items-center py-12  ">
-        <div className="w-full px-4 sm:w-11/12 md:w-10/12 lg:w-11/12 xl:w-11/12 xl:grid-cols-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 md:grid-cols-2 ">
+    <main className="min-h-screen">
+      <div className="flex justify-center items-center py-12">
+        <div className="mt-14 w-full px-4 sm:w-11/12 md:w-10/12 lg:w-11/12 xl:w-11/12 xl:grid-cols-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 md:grid-cols-2 ">
           {Array.isArray(blogs) ? (
             blogs.map((blog) => (
               <div
