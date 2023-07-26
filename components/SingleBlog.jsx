@@ -10,13 +10,10 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 const fetchData = async (slug) => {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkzNTg3Nzg4LCJpYXQiOjE2ODgyMzA5ODgsImp0aSI6IjI4N2QwNTNmYWIyYjQwOTQ4OGVkOTc5ZGU4OTJkOTE2IiwidXNlcl9pZCI6MX0.QtMmMX8pju2nulQkjlw4MoSWi0bTTZfxRqkVTqlCmrk"; // Replace this with your actual bearer token
-
   try {
     const response = await fetch(`${API_URL}/portfolio/blog/?slug=${slug}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
       },
       cache: "no-cache",
     });
@@ -45,9 +42,9 @@ function processCodeBlocks(content) {
     return `<pre class="language-${language}"><code class="language-${language}">${highlightedCode}</code></pre>`;
   });
 }
-
 export default async function SingleBlog({ slug }) {
   const blog = await fetchData(slug);
+  
 
   if (!blog) {
     return <NotFound statusCode={404} />;
@@ -62,7 +59,7 @@ export default async function SingleBlog({ slug }) {
         <title>Blog - {blog.title}</title>
         <meta name="description" content={blog.content} />
       </Head>
-    <Navbar />
+      <Navbar />
 
       <main>
         <div className="container mx-auto px-4 sm:px-6 mt-14 lg:px-8 py-8 lg:w-8/12">
@@ -83,7 +80,6 @@ export default async function SingleBlog({ slug }) {
         </div>
       </main>
       <Footer />
-
     </>
   );
 }

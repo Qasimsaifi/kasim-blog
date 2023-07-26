@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-
-
 async function fetchBlogs() {
   try {
     const response = await fetch(
@@ -10,8 +8,7 @@ async function fetchBlogs() {
       {
         cache: "no-cache",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkzNTg3Nzg4LCJpYXQiOjE2ODgyMzA5ODgsImp0aSI6IjI4N2QwNTNmYWIyYjQwOTQ4OGVkOTc5ZGU4OTJkOTE2IiwidXNlcl9pZCI6MX0.QtMmMX8pju2nulQkjlw4MoSWi0bTTZfxRqkVTqlCmrk",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
         },
       }
     );
@@ -41,48 +38,52 @@ async function BlogsPage() {
     return `${day}/${month}/${year}`;
   }
   return (
-    <>
-<div className="flex justify-center items-center py-12 mt-8 ">
-  <div className="w-full px-4 sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 mt-8">
-    {Array.isArray(blogs) ? (
-      blogs.map((blog) => (
-        <div key={blog.slug} className="blog-card shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] flex flex-col h-full border-double border-4 border-gray-700 p-2">
-          <Link href={`/blog/${blog.slug}`}>
-            {blog.image ? (
-              <Image
-                className="card-image border-double border-4 border-gray-700 p-1"
-                src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}
-                alt=""
-                width={500}
-                height={100}
-              />
-            ) : (
-              <img
-                className="card-image"
-                src="/no-image.png"
-                alt="Default Image"
-                width={500}
-                height="50px"
-              />
-            )}
-          </Link>
-          <div className="flex flex-col justify-between flex-grow">
-            <Link href={`/blog/${blog.slug}`}>
-              <p className="card-title">{blog.title}</p>
-            </Link>
-            <p className="blog-footer mt-4 pb-2">
-              Written by <span className="by-name">{blog.author}</span> on{" "}
-              <span className="date">{formatDate(blog.created_at)}</span>
-            </p>
-          </div>
+    <main className="mt-16 min-h-screen">
+      <div className="flex justify-center items-center py-12  ">
+        <div className="w-full px-4 sm:w-11/12 md:w-10/12 lg:w-11/12 xl:w-11/12 xl:grid-cols-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 md:grid-cols-2 ">
+          {Array.isArray(blogs) ? (
+            blogs.map((blog) => (
+              <div
+                key={blog.slug}
+                className="blog-card bg-gray-200 dark:bg-gray-800 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] flex flex-col h-full border-double border-4 border-gray-700 p-2"
+              >
+                <Link href={`/blog/${blog.slug}`}>
+                  {blog.image ? (
+                    <Image
+                      className="card-image border-double border-4 border-gray-700 p-1"
+                      src={`https://res.cloudinary.com/dehpkgdw5/${blog.image}`}
+                      alt=""
+                      width={500}
+                      height={100}
+                    />
+                  ) : (
+                    <img
+                      className="card-image"
+                      src="/no-image.png"
+                      alt="Default Image"
+                      width={500}
+                      height="50px"
+                    />
+                  )}
+                </Link>
+                <div className="flex flex-col justify-between flex-grow">
+                  <Link href={`/blog/${blog.slug}`}>
+                    <p className="card-title">{blog.title}</p>
+                  </Link>
+
+                  <p className="blog-footer mt-4 pb-2">
+                    Written by <span className="by-name">{blog.author}</span> on{" "}
+                    <span className="date">{formatDate(blog.created_at)}</span>
+                  </p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No blogs to display.</p>
+          )}
         </div>
-      ))
-    ) : (
-      <p>No blogs to display.</p>
-    )}
-  </div>
-</div>
-    </>
+      </div>
+    </main>
   );
 }
 
