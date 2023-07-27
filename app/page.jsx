@@ -16,8 +16,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <div className=" mb-4 flex justify-center " id="latest">
-        <h1 className="mt-20 text-5xl font-bold pb-2 text-purple-800 border-b-4 border-purple-800 border-spacing-48 inline">
-          Latest Blogs
+        <h1 className="mt-20 text-5xl font-bold  text-purple-800 border-b-4 border-purple-800 border-spacing-48 inline">
+        &nbsp; Latest Blogs &nbsp;
         </h1>
       </div>
 
