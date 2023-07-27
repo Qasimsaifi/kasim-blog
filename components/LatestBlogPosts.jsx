@@ -1,5 +1,4 @@
-
-import { BlogCard } from "./ui/components";
+import { BlogCard } from "./ui/Cards";
 
 async function fetchBlogs() {
   try {
@@ -8,8 +7,7 @@ async function fetchBlogs() {
       {
         cache: "no-cache",
         headers: {
-          Authorization:
-          `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
         },
       }
     );
@@ -33,13 +31,12 @@ async function LatestBlogPost() {
 
   return (
     <main className="min-h-screen">
-
       <div className="flex justify-center items-center py-12  ">
         <div className="w-full px-4 sm:w-11/12 md:w-10/12 lg:w-11/12 xl:w-11/12 xl:grid-cols-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 md:grid-cols-2 ">
           {Array.isArray(blogs) ? (
             blogs.map((blog) => (
               <>
-              <BlogCard blog={blog}/>
+                <BlogCard blog={blog} />
               </>
             ))
           ) : (

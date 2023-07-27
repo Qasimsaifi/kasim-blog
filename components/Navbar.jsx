@@ -14,7 +14,12 @@ function Navbar() {
           <div className="flex items-center justify-between py-1 md:block">
             {/* LOGO */}
             <Link href="/">
-              <h2 className="text-2xl text-purple-900 font-bold">BLOGICCO</h2>
+              {/* <h2 className="text-2xl text-purple-800 font-bold">BLOGICCO</h2> */}
+              <div className="avatar">
+                <div className="w-12 rounded-full ">
+                  <img src="/logo.png" />
+                </div>
+              </div>
             </Link>
             {/* HAMBURGER BUTTON FOR MOBILE */}
             <div className="md:hidden">
@@ -43,26 +48,25 @@ function Navbar() {
           } md:flex md:justify-center md:items-center md:p-0 md:mt-0`}
         >
           <ul className="md:flex md:mt-2">
-            <li className="pb-6 text-xl  dark:text-purple-900 text-purple-900 py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-900 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
+            <li className="pb-6 text-xl  dark:text-purple-800 text-purple-800 py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-900 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
               <Link href="/" onClick={() => setNavbar(!navbar)}>
                 Home
               </Link>
             </li>
 
-            <li className="pb-6 text-xl  dark:text-purple-900 text-purple-900 py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-600 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
+            <li className="pb-6 text-xl  dark:text-purple-800 text-purple-800 py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-600 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
               <Link href="/blogs" onClick={() => setNavbar(!navbar)}>
                 Blogs
               </Link>
             </li>
-            <li className="pb-6 text-xl  dark:text-purple-900 text-purple-900 py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-600 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
+            <li className="pb-6 text-xl  dark:text-purple-800 text-purple-800 py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-600 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
               <Link href="/about" onClick={() => setNavbar(!navbar)}>
                 About
               </Link>
             </li>
-            <li className="pb-6 text-xl  dark:text-purple-900 text-purple-900 py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-600 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
-              <ThemeChanger/>
+            <li className="pb-6 text-xl  dark:text-purple-800 text-purple-800 py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-600 border-purple-900 md:hover:text-purple-600 md:hover:bg-transparent">
+              <ThemeChanger />
             </li>
-
           </ul>
         </div>
       </div>
