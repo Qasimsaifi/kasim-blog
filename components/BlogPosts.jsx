@@ -1,6 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
-import { BlogCard } from "./ui/components";
+import { BlogCard } from "./ui/Cards";
 
 async function fetchBlogs() {
   try {

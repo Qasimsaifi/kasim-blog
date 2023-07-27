@@ -1,10 +1,11 @@
 import React from "react";
+import Button from "./ui/Button";
 
 const Hero = () => {
   return (
     <>
       <div
-        className="hero min-h-screen text-black"
+        className="hero min-h-screen dark:text-black text-gray-100"
         style={{
           backgroundImage:
             "url(https://cdn.pixabay.com/photo/2014/10/22/17/47/keyboard-498396_1280.jpg)",
@@ -19,12 +20,11 @@ const Hero = () => {
               your curiosity and expand your knowledge with our carefully
               crafted content.
             </p>
-            <button className="px-6 py-2 rounded-full border-double border-4 border-gray-700 transition duration-300 ease-in-out hover:bg-black hover:text-white"> <a href="#latest">Get Started</a></button>
-
+            <Button><a href="#latest">Get Started</a></Button>
+           
           </div>
         </div>
       </div>
-   
     </>
   );
 };

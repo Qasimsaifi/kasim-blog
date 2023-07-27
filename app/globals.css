@@ -62,6 +62,10 @@ html {
   /* box-shadow: 1px 1px 1px #1a202c,
   -5px -5px 6px #1a202c; */
   transition: 0.6s;
+  z-index: 0;
+}
+nav{
+  z-index: 6;
 }
 
 .blog-card:hover {
