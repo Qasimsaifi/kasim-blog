@@ -23,7 +23,7 @@ async function fetchBlogs() {
   }
 }
 export default async function sitemap() {
-  const baseUrl = "https://nextjs13-seo.vercel.app";
+  const baseUrl = "https://blogicco.kasimsaifi.tech";
 
   // Get All Posts from CMS
   const postsData = await fetchBlogs();
