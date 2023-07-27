@@ -27,9 +27,8 @@ export default async function sitemap() {
 
   // Get All Posts from CMS
   const postsData = await fetchBlogs();
-  // const posts = postsData.results
-  console.log(posts);
-  console.log(posts);
+  const posts = postsData.results
+ 
   const postsUrls =
     posts?.map((post) => {
       return {
