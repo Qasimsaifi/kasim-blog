@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 
 import Providers from "./Providers";
 import "./globals.css";
+import GoToTopButton from "@/components/GoToTopButton";
 
 export default function RootLayout({ children }) {
   return (
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
         <body>
           <Providers>
             {children}
+            <GoToTopButton/>
           </Providers>
         </body>
       </html>

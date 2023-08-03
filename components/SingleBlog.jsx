@@ -61,7 +61,7 @@ export default async function SingleBlog({ slug }) {
       </Head>
       <Navbar />
 
-      <main className="bg-gray-100 dark:bg-gray-900">
+      <main className="bg-gray-100 dark:bg-gray-900 text-black dark:text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:w-8/12">
           <h1 className="text-3xl mt-14  font-bold mb-4">{blog.title}</h1>
           <img
