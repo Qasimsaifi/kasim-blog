@@ -7,8 +7,6 @@ import {
   FaGraduationCap,
   FaLaptopCode,
 } from "react-icons/fa";
-import { GiSkills } from "react-icons/gi";
-import { MdWeb } from "react-icons/md";
 
 const AboutPage = () => {
   return (
